@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+    $('.toggle-nav').click(function() {
+      $('body').toggleClass('show-nav');
+      return false;
+    });
+
+  });
