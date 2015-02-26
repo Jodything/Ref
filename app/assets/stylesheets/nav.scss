@@ -1,0 +1,64 @@
+$teal: navy;
+$holo: green;
+$charc: gray;
+
+body, html {
+  overflow: hidden;
+}
+
+body {
+  font: 100% / 1.5;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ///////navigation\\\\\\\\ */
+.site-wrap {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.push-wrap {
+  transition: all 300ms ease 0;
+  transform: translate(0,0);
+  transform: translate3d(0,0,0);
+}
+.show-nav .push-wrap {
+  transform: translate(275px, 0);
+  transform: translate3d(275px, 0, 0);
+}
+nav {
+  width: 275px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: inset -1.5em 0 1.5em -0.75em rgba(0, 0, 0, 0.5);
+  background: linear-gradient($teal, $holo);
+  text-align: center;
+  font-size: x-large;
+  padding-top: 1em;
+  ul li a:hover,
+  ul li a:focus {
+    color: $charc;
+    text-decoration: none;
+    font-weight: 700;
+    line-height: 2em;
+  }
+  ul li a {
+    color: $holo;
+  }
+
+}
+a.toggle-nav {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  z-index: 20;
+  text-decoration: none;
+  font-size: x-large;
+  color: $teal;
+  :hover {
+    text-decoration: none;
+  }
+}
