@@ -1,16 +1,163 @@
-$teal: navy;
-$holo: green;
-$charc: gray;
+$gray: #d8d8d8;
+$teal: #353535;
+$holo: #E6C229;
+$charc: #50514f;
+$navy: #232c33;
 
-body, html {
-  overflow: hidden;
-}
 
-body {
-  font: 100% / 1.5;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
+
+  /* demo styles
+  --------------------------------------------- */
+
+  body, html {
+    overflow: hidden;
+  }
+
+  body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  * {
+    margin:0;
+    padding:0;
+  }
+
+  .parallax {
+    font-size: 200%;
+  }
+
+   /* centre the content in the parallax layers */
+  .title {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: $teal;
+    font-size: 1em;
+    h1 {
+      color: $gray;
+      font-weight: 200;
+      font-size: 3em;
+      border-bottom: .1em solid $holo;
+      span {
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: white;
+        text-shadow: 0 0 20px $teal;
+        font-weight: 600;
+      }
+    }
+    h4 {
+      color: $gray;
+      // text-shadow: 0 0 20px $holo;
+    }
+  }
+ /* Parallax base styles
+  --------------------------------------------- */
+
+  .parallax {
+    height: 500px; /* fallback for older browsers */
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+  }
+
+  .parallax__group {
+    position: relative;
+    height: 500px; /* fallback for older browsers */
+    height: 100vh;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  .parallax__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .parallax__layer--fore {
+    -webkit-transform: translateZ(90px) scale(.7);
+    transform: translateZ(90px) scale(.7);
+    z-index: 1;
+  }
+
+  .parallax__layer--base {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 4;
+  }
+
+  .parallax__layer--back {
+    -webkit-transform: translateZ(-300px) scale(2);
+    transform: translateZ(-300px) scale(2);
+    z-index: 3;
+  }
+
+  .parallax__layer--deep {
+    -webkit-transform: translateZ(-600px) scale(3);
+    transform: translateZ(-600px) scale(3);
+    z-index: 2;
+  }
+
+
+  /* style the groups
+  --------------------------------------------- */
+
+  div#group1 {
+    z-index: 5; /* slide over group 2 */
+    .parallax__layer--base {
+      background: url(/scrolling-home/assets/img/grid.png) no-repeat center center fixed, linear-gradient($holo, black) ;
+    }
+  }
+
+  div#group2 {
+    z-index: 3; /* slide under groups 1 and 3 */
+    .parallax__layer--back {
+      background: url('http://dummyimage.com/2560X1440/00ffa6/d8d8d8.png&text=going+down?') no-repeat center center;
+    }
+  }
+
+  div#group3 {
+    z-index: 4; /* slide over group 2 and 4 */
+    .parallax__layer--base {
+      background: url('http://dummyimage.com/2560X1440/d8d8d8/00ffa6.png&text=floor+3+please') no-repeat center center;
+    }
+  }
+  div#group4 {
+    z-index: 2; /* slide under group 3 and 5 */
+    .parallax__layer--deep {
+      background: url('http://dummyimage.com/2560X1440/00ffa6/d8d8d8.png&text=weeee!') no-repeat center center;
+    }
+  }
+
+  div#group5 {
+    z-index: 3; /* slide over group 4 and 6 */
+    .parallax__layer--base {
+      background: url('http://dummyimage.com/2560X1440/d8d8d8/00ffa6.png&text=quiet+down+back+there') no-repeat center center;
+    }
+  }
+
+  div#group6 {
+    z-index: 2; /* slide under group 5 and 7 */
+    .parallax__layer--back {
+      background: url('http://dummyimage.com/2560X1440/00ffa6/d8d8d8.png&text=slowing+down') no-repeat center center;
+    }
+  }
+
+  div#group7 {
+    z-index: 3; /* slide over group 7 */
+    .parallax__layer--base {
+      background: url('http://dummyimage.com/2560X1440/d8d8d8/00ffa6.png&text=END') no-repeat center center;
+    }
+  }
 
 /* ///////navigation\\\\\\\\ */
 .site-wrap {
@@ -40,7 +187,7 @@ nav {
   padding-top: 1em;
   ul li a:hover,
   ul li a:focus {
-    color: $charc;
+    color: $gray;
     text-decoration: none;
     font-weight: 700;
     line-height: 2em;
@@ -57,8 +204,35 @@ a.toggle-nav {
   z-index: 20;
   text-decoration: none;
   font-size: x-large;
-  color: $teal;
+  color: white;
   :hover {
     text-decoration: none;
   }
+}
+
+button {
+  height: 3em;
+  width: 9em;
+  background: $teal;
+  color: $holo;
+  border: none;
+  border-radius: .25em;
+  font-size: x-large;
+  font-weight: 700;
+}
+
+
+/* //////Video player\\\\\\ */
+video#bgvid {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  // background: url(/scrolling-home/assets/img/grid.png), linear-gradient($holo, $charc);
+  background-size: cover;
+  opacity: .5;
 }

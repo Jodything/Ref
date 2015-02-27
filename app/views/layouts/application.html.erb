@@ -5,26 +5,125 @@
     <%= render "/refinery/head" %>
   </head>
   <body id="<%= canonical_id @page %>">
-    <%= site_bar -%>
-    <!-- <div id="page_container"> -->
+
+
+
 
       <div class="site-wrap">
-        <header id="header">
+        <!-- <header id="header"> -->
           <%= render "/refinery/header" -%>
-        </header>
+        <!-- </header> -->
 
         <div class="push-wrap">
+          <%= site_bar -%>
           <a href="#" class="toggle-nav">❯❯</a>
+            <section id="page">
+              <!-- <%= yield %> -->
 
-          <section id="page">
-            <%= yield %>
-          </section>
+              <div class="parallax">
+
+      <!-- ///Group One(1)\\\ -->
+      <div id="group1" class="parallax__group">
+        <div class="parallax__layer parallax__layer--base">
+
+          <!-- <video autoplay loop poster="" id="bgvid" class="bgvid">
+            <source src="/scrolling-home/assets/img/typing.mp4" type="video/mp4">
+          </video> -->
+
+          <div class="title">
+            <h1><span>TENN</span> REF</h1>
+            <h4>association</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- ///Group Two(2)\\\ -->
+      <div id="group2" class="parallax__group">
+        <div class="parallax__layer parallax__layer--base">
+          <div class="title">We do things...</div>
+        </div>
+        <div class="parallax__layer parallax__layer--back">
+          <div class="title"></div>
+        </div>
+      </div>
+
+      <!-- ///Group Three(3)\\\ -->
+      <div id="group3" class="parallax__group">
+        <div class="parallax__layer parallax__layer--fore">
+          <div class="title">...really cool things...</div>
+        </div>
+        <div class="parallax__layer parallax__layer--base">
+          <div class="title"></div>
+        </div>
+      </div>
+
+      <!-- ///Group Four(4)\\\ -->
+      <div id="group4" class="parallax__group">
+        <div class="parallax__layer parallax__layer--base">
+          <div class="title">
+            ⇪
+          </div>
+        </div>
+        <div class="parallax__layer parallax__layer--back">
+          <div class="title">...like this site...</div>
+        </div>
+        <div class="parallax__layer parallax__layer--deep">
+          <div class="title"></div>
+        </div>
+      </div>
+
+      <!-- ///Group Five(5)\\\ -->
+      <div id="group5" class="parallax__group">
+        <div class="parallax__layer parallax__layer--fore">
+          <div class="title">...or our iOS apps...</div>
+        </div>
+        <div class="parallax__layer parallax__layer--base">
+          <div class="title"></div>
+        </div>
+      </div>
+
+      <!-- ///Group Six(6)\\\ -->
+      <div id="group6" class="parallax__group">
+        <div class="parallax__layer parallax__layer--back">
+          <div class="title"></div>
+        </div>
+        <div class="parallax__layer parallax__layer--base">
+          <div class="title">
+            <button>CHECK IT OUT</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ///Group Seven(7)\\\ -->
+      <div id="group7" class="parallax__group">
+        <div class="parallax__layer parallax__layer--base">
+          <div class="title">END</div>
+        </div>
+      </div>
+
+    </div><!--parallax-->
+
+
+
+            </section>
           <footer>
             <%= render "/refinery/footer" -%>
           </footer>
         </div>
 
-      </div>
+
+
+<script>
+  window.onload = function () {
+    $(function() {
+        $('.toggle-nav').click(function() {
+          $('body').toggleClass('show-nav');
+          return false;
+        });
+
+      });
+  };
+</script>
 
     <!-- </div> -->
     <%= render "/refinery/javascripts" %>
